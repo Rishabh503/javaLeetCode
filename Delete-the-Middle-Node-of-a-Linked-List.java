@@ -19,16 +19,19 @@ class Solution {
             temp=temp.next;
            
         }
-        prev.next=middle.next;
-        return head;
+        // prev.next=middle.next;
+        return middle;
     }
     public ListNode middleNode(ListNode head) {
         ListNode slow=head;
         ListNode fast=head;
+        ListNode prev=null;
         while(fast!=null && fast.next!=null){
+            prev=slow;
             slow=slow.next;
             fast=fast.next.next;
         }
-        return slow;
+        prev.next=slow.next;
+        return head;
     }
 }
